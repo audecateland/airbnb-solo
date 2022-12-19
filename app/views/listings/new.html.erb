@@ -1,0 +1,6 @@
+<h1>Listings#new</h1>
+  <%= simple_form_for @listing do |f| %>
+    <%= f.input :name, placeholder: 'Listing name' %>
+    <%= f.input :address, placeholder: 'Address' %>
+    <%= f.submit "Add this listing", class: "btn btn-primary" %>
+  <% end %>

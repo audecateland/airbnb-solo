@@ -1,0 +1,15 @@
+<h1>Listings#index</h1>
+<h3> <%= link_to "Add a listing", new_listing_path, class: "btn btn-flat"  %></h3>
+
+  <div class="row">
+    <% @listings.each do |listing| %>
+    <div class="co-12 col-sm-6 col-md-4 mb-3">
+      <%= link_to listing_path(listing), class:"text-decoration-none" do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('bobine.png') %>)">
+            <%= listing.name %>
+            <%= listing.address %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
