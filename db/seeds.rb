@@ -31,6 +31,7 @@ presidence.listings.create!(
   name: "palais de l'elysee",
   address: "5e"
 )
+p "🥖🇫🇷 created Macarons user and Presidence listing"
 
 users.each do |user|
   new_user = User.create!(

@@ -1,11 +1,23 @@
 <div class="card-category">
   <h1>Listings#show</h1>
+    <!-- Listing details -->
+
   <h2><%= @listing.name %></h2>
 </div>
 <div class="container mb-5">
   <p><%= @listing.name%> <%= @listing.note %></p>
   <p><%= @listing.address %></p>
-  <%= link_to "Delete listing", listing_path(@listing), class: "btn btn-flat", data: {turbo_method: :delete} %>
-  <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-flat" %>
-
+    <!-- Booking' listing form -->
+            <% if current_user != @listing.user && current_user %>
+            <%= simple_form_for [@listing, @booking] do |f| %>
+              <%= f.input :start_date, html5: true, label: 'Date du début de la location' %>
+              <%= f.input :end_date, html5: true, label: 'Date de fin'%>
+              <%= f.button :submit, 'Rent', class: 'btn btn-dark' %>
+            <% end %>
+          <% end %>
+    <!-- User action on their listing -->
+  <% if current_user == @listing.user %>
+    <%= link_to "Delete listing", listing_path(@listing), class: "btn btn-flat", data: {turbo_method: :delete} %>
+    <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-flat" %>
+  <% end %>
 </div>
