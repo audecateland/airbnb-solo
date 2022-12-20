@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[destroy index]
   resources :reviews, only: %i[new create destroy index]
+
 end
