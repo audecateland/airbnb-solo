@@ -30,10 +30,11 @@ class ListingsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
   end
 
   def index
-    @listings = Listing.all
+    @listings = Listing.where.not(user: current_user)
   end
 
   private

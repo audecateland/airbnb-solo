@@ -1,2 +1,6 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1>New review</h1>
+<%= simple_form_for [@listing, @review] do |f| %>
+  <%= f.input :comment, placeholder: 'How was your stay ?' %>
+  <%= f.input :note, collection: 1..5, prompt: "Rate the listing", selected: 5 %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>

@@ -20,5 +20,14 @@
     <%= link_to "Delete listing", listing_path(@listing), class: "btn btn-flat", data: {turbo_method: :delete} %>
     <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-flat" %>
   <% end %>
-
+      <!-- Reviews-->
+  <div class="container mt-5">
+    <p><strong>Reviews</strong></p>
+    <ul class="list-group">
+      <% @listing.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.comment %><%= review.note %></li>
+      <% end %>
+    </ul>
+    <br>
+  </div>
 </div>

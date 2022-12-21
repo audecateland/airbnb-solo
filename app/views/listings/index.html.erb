@@ -1,4 +1,4 @@
-<h1>Listings#index</h1>
+<h1>Find your next vacation</h1>
 <h3> <%= link_to "Add a listing", new_listing_path, class: "btn btn-flat"  %></h3>
 
   <div class="row">
@@ -13,10 +13,6 @@
             </div>
           </div>
         <% end %>
-            <div>
-              <%= link_to "Delete listing", listing_path(listing), class: "btn btn-flat", data: {turbo_method: :delete} %>
-              <%= link_to "Update listing", listing_path(listing), class: "btn btn-flat", data: {turbo_method: :update} %>
-            </div>
       </div>
     <% end %>
   </div>

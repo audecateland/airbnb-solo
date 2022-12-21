@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   resources :listings, only: %i[new create destroy show index edit update] do
     resources :bookings, only: %i[new create]
+    resources :reviews, only: %i[new create index]
   end
   resources :bookings, only: %i[destroy index]
-  resources :reviews, only: %i[new create destroy index]
-
+  # Namespace allows to dedicate pages and controller to modules of the table you are calling on
+  namespace :my do
+    resources :listings, only: %i[index]
+  end
 end
