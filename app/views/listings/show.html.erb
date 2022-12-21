@@ -20,7 +20,7 @@
     <%= link_to "Delete listing", listing_path(@listing), class: "btn btn-flat", data: {turbo_method: :delete} %>
     <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-flat" %>
   <% end %>
-      <!-- Reviews-->
+    <!-- Reviews -->
   <div class="container mt-5">
     <p><strong>Reviews</strong></p>
     <ul class="list-group">
@@ -29,5 +29,11 @@
       <% end %>
     </ul>
     <br>
+  </div>
+    <!-- Post a review -->
+  <div>
+  <% if current_user != @listing.user && @listing.reviews.where(user: current_user) == nil %>
+    <%= link_to "Leave a review", new_listing_review_path(@listing), class: "btn btn-dark"%>
+  <% end %>
   </div>
 </div>
