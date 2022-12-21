@@ -1,10 +1,13 @@
-<h1>My bookings</h1>
-<% @bookings.each do |booking|  %>
-  <div class="card-product mb-3">
-    <%= image_tag "room_1.jpg", alt: "Rental room photo", width: 200 %>
-    <div class="card-product-infos">
-      <h2><%= booking.listing.name %></h2>
-      <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+<div class="mx-5">
+  <h1>My bookings</h1>
+  <% @bookings.each do |booking|  %>
+    <div class="card-product mb-3">
+      <%= image_tag "room_1.jpg", alt: "Rental room photo", width: 200 %>
+      <div class="card-product-infos">
+        <h2><%= booking.listing.name %></h2>
+        <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <%= link_to "Book a new trip", listings_path, class: "btn btn-ghost"%>
+</div>

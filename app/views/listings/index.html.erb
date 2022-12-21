@@ -1,17 +1,28 @@
-<h1>Find your next vacation</h1>
-
-  <div class="row">
-    <% @listings.each do |listing| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to listing_path(listing), class:"text-decoration-none" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))%>)">
-            <%= image_tag "room_1.jpg", alt: "Rental room photo", width: 200 %>
-            <div>
-              <%= listing.name %>
-              <%= listing.address %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+<div class="">
+    <!-- Banner -->
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg')%>)">
+    <div class="container">
+      <h1>Enjoy your <strong>time away</strong> in the <strong>comfort of a home</strong>.</h1>
+      <p>Find wonderful accomodation to enhance your next trip</p>
+      <a class="btn btn-flat" href="#">Find your next vacation</a>
+    </div>
   </div>
+    <!-- Listing advertised -->
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <% @listings.limit(6).each do |listing| %>
+        <div class="co-12 col-sm-6 col-md-4 mb-3">
+          <%= link_to listing_path(listing), class:"text-decoration-none" do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))%>)">
+              <%= image_tag "room_1.jpg", alt: "Rental room photo", width: 200 %>
+              <div>
+                <%= listing.name %>
+                <%= listing.address %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

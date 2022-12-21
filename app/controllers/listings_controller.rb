@@ -31,6 +31,7 @@ class ListingsController < ApplicationController
   def show
     @booking = Booking.new
     @review = Review.new
+    @average_rating = @listing.reviews.map(&:note).sum/@listing.reviews.count unless @listing.reviews.count.zero?
   end
 
   def index
